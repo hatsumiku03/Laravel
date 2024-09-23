@@ -9,23 +9,20 @@
 <body>
     <h2>Comments</h2>
 
+    @if ($comments == NULL)
+        <p>No hay comentarios</p>
+    @else
     <ul>
         @foreach ($comments as $comment)
-            <li>{{ $comment }}</li>
+            <li><a href="{{ url('/comments/'.$loop->index.'') }}">{{ $comment }}</a></li>
         @endforeach
     </ul>
+    @endif
 
     <p>
         Make your own comment!
         <br>
         <a href="http://0.0.0.0/comments/create">click here</a>
-    </p>
-
-    <p>
-        <!--Put here a select of the commentaries-->
-        Edit some comment [NOT WORKS ALREADY]
-        <br>
-        <a href="http://0.0.0.0/comments/$id/edit">click here</a>
     </p>
 
 </body>
