@@ -29,7 +29,6 @@ class CommentsController extends Controller
 
     // This shows you the comments by id (in this case, by the position of array)
     function show(string $id){
-        // ! DON'T WORK, FIX IT
         return view ('comment')
             ->with('comment',session('acomments')[$id])
             ->with('id',$id);
@@ -44,9 +43,9 @@ class CommentsController extends Controller
     // All the functions of the edit form
     function update(Request $request, string $id){
         // ! DON'T WORK, FIX IT
-        $comments = session('comments');
-        $comments[$id] = $request->comment;
-        session()->put('comments', $comments);
+        $comment = session('comment');
+        $comment[$id] = $request->comment;
+        session()->put('comment', $comment);
         return redirect('comments');
     }
 

@@ -1,4 +1,3 @@
-<p>{{ $comment }}
+<p>{{ $comment }}</p>
 
-
-    <a href="/comments/{{ $id }}/edit">EDITAR</a>
+<a href="/comments/{{ $id }}/edit">Edit</a>
