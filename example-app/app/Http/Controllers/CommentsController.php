@@ -43,7 +43,7 @@ class CommentsController extends Controller
     // All the functions of the edit form
     function update(Request $request, string $id){
         // ! DON'T WORK, FIX IT
-        $comment = session('comment');
+        $comment = session('acomments');
         $comment[$id] = $request->comment;
         session()->put('comment', $comment);
         return redirect('comments');

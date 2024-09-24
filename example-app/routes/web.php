@@ -26,9 +26,9 @@ Route::get('/comments/{id}', [CommentsController::class, 'show']);
 Route::get('/comments/{id}/edit', [CommentsController::class, 'edit']);
 
 // Comments for edit and update one comment
-Route::patch('/comments', [CommentsController::class, 'update']);
+Route::patch('/comments/{id}', [CommentsController::class, 'update']);
 
 // Comments delete comment
-Route::delete('/comments', function () {
+Route::delete('/comments/{id}', function () {
 
 });

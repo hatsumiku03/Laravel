@@ -9,10 +9,11 @@
 <body>
     <h2>Edit your comment</h2>
 
-    <form method=PATCH action="/comments">
+    <form method=POST action="/comments">
         @csrf
+    <input type="hidden" name="_method" value="PATCH"/>
     <input type="text" name="comment">
-    <input type="submit" value="Enviar">
+    <input type="submit" value="Rewrite">
     </form>
     <p>
         Back to the comments section
