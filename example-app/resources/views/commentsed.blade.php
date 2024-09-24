@@ -9,10 +9,10 @@
 <body>
     <h2>Edit your comment</h2>
 
-    <form method=POST action="/comments">
+    <form method=POST action="/comments/{{ $id }}">
         @csrf
     <input type="hidden" name="_method" value="PATCH"/>
-    <input type="text" name="comment">
+    <input type="text" name="comment" value="{{ $value }}"">
     <input type="submit" value="Rewrite">
     </form>
     <p>
@@ -22,4 +22,3 @@
     </p>
 </body>
 </html>
- 

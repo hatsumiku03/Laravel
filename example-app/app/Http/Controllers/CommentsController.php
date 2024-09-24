@@ -24,7 +24,7 @@ class CommentsController extends Controller
     // This let you to send commentaries from the form
     function store(Request $request){
         session()->push('acomments', $request->comment);
-        return redirect('comments');
+        return redirect('/comments');
     }
 
     // This shows you the comments by id (in this case, by the position of array)
@@ -37,19 +37,21 @@ class CommentsController extends Controller
 
     // Return to you the form to edit the comments
     function edit(string $id){
-        return view('commentsed', ['id'=>$id]);
+        return view('commentsed', ['id'=>$id, 'value' => session('acomments')[$id]]);
     }
 
     // All the functions of the edit form
     function update(Request $request, string $id){
-        // ! DON'T WORK, FIX IT
         $comment = session('acomments');
         $comment[$id] = $request->comment;
-        session()->put('comment', $comment);
-        return redirect('comments');
+        session()->put('acomments', $comment);
+        return redirect('/comments');
     }
 
     function remove(string $id){
-
+        $comment = session('acomments');
+        array_splice($comment, $id,1);
+        session()->put('acomments', $comment);
+        return redirect('/comments');
     }
 }

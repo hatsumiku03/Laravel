@@ -29,6 +29,4 @@ Route::get('/comments/{id}/edit', [CommentsController::class, 'edit']);
 Route::patch('/comments/{id}', [CommentsController::class, 'update']);
 
 // Comments delete comment
-Route::delete('/comments/{id}', function () {
-
-});
+Route::delete('/comments/{id}', [CommentsController::class, 'remove']);
