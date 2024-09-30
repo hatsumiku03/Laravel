@@ -15,31 +15,26 @@ class Product {
 
 class ProductController extends Controller
 {
-
-    public $seleccion, $ofertas, $topventas;
+    public $selection, $deals, $topsales;
 
     function init_variables() {
 
         // JSON String
-        $this->seleccion = json_decode('[
-        { "name" : "producto seleccion 1", "id" : 991},
-        { "name" : "producto seleccion 2", "id" : 992}
+        $this->selection = json_decode('[
+        { "name" : "producto selection 1", "id" : 991},
+        { "name" : "producto selection 2", "id" : 992}
         ]');
 
         // Array asociativo
-        $this->ofertas = [
+        $this->deals = [
             [ "name" => "producto oferta 1", "id" => 993],
             [ "name" => "producto oferta 2", "id" => 994]
         ];
 
         // Array de objetos
-        $this->topventas = [
+        $this->topsales = [
             new Product("producto top 1", 995),
             new Product("producto top 2", 996)
         ];
     }
-
-
-    // ...resto de metodos menejadores de rutas...
 }
-
