@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+th, td, table{
+    border: 1px solid;
+}
+
+table{
+    width: 50%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.tirel{
+    text-align: center;
+}

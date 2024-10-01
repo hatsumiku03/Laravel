@@ -9,7 +9,8 @@ class MovieController extends Controller
 {
     public function index()
     {
-        return Movie::all();
+        $all = Movie::all();
+        return view('net', compact('all'));
     }
 
     /**
@@ -17,7 +18,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -25,7 +26,12 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $movie = new Movie;
+        $movie -> title = $request->title;
+        $movie -> duration = $request->duration;
+        $movie -> save();
+
+        return redirect('/');
     }
 
     /**
@@ -33,7 +39,8 @@ class MovieController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $movie = Movie::find($id);
+        return view('movie', compact('movie'));
     }
 
     /**
