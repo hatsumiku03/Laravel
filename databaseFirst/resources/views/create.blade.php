@@ -8,13 +8,12 @@
 </head>
 <body>
 
-<form action="create">
+<form method=POST action="net">
     @csrf
-
     <p>Title</p>
-    <input name="title">
+    <input name="title" placeholder="Title">
     <p>Duration</p>
-    <input name="duration">
+    <input name="duration" placeholder="Duration">
 <br>
 <br>
     <button type="submit">Send it!</button>

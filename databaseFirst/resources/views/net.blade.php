@@ -18,8 +18,13 @@
     <table>
 <tr>
     <!-- ESTABLECER ID -->
-    <th><a href="create/{{$id}}">{{ $data->title }}</a></th>
-    <th><a href="">{{ $data->duration }}</a></th>
+    <th><a href="movie/{{ $data->id }}">{{ $data->title }}</a></th>
+    <th><a href="movie/{{ $data->id }}">{{ $data->duration }}</a></th>
+    <form method="POST" action="/movie/{{ $data->id }}/rmv">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="Delete" class="text-red-700">
+    </form>
 </tr>
 @empty
     <tr><td colspan="2">No record found</td></tr>

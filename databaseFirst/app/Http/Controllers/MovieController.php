@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
@@ -11,6 +12,7 @@ class MovieController extends Controller
     {
         $all = Movie::all();
         return view('net', compact('all'));
+        //return view('net')->with('movies', Movie::all());
     }
 
     /**
@@ -48,7 +50,8 @@ class MovieController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $movie = Movie::find($id);
+        return view('edit', compact('movie'));
     }
 
     /**
@@ -56,7 +59,13 @@ class MovieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // ! Esto es lo último que hice, tengo que hacer que el edit.blade.php funcione correctamente para editar
+        $movie = Movie::find($id);
+        $movie->title = $request->input('title');
+        $movie->duration = $request->input('duration');
+
+        $movie->save();
+        return redirect('/')->with('success', 'Item updated successfully');
     }
 
     /**
@@ -64,6 +73,7 @@ class MovieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('movies')->where('id', '=', $id)->delete();
+        return redirect('/');
     }
 }

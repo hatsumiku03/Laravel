@@ -10,5 +10,5 @@ class Movie extends Model{
 
     protected $table = 'movies';
 
-    protected $fillable = ['title', 'duration'];
+    protected $fillable = ['id', 'title', 'duration'];
 }
