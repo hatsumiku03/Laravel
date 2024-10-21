@@ -11,9 +11,6 @@ Route::get('/create', [MovieController::class, 'create']);
 
 Route::post('/create/{id}', [MovieController::class, 'store']);
 
-
-
-
 Route::get('/movie/{id}/edit', [MovieController::class, 'edit']);
 
 Route::patch('/movie/{id}', [MovieController::class, 'update']);
