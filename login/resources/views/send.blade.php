@@ -1,7 +1,7 @@
 <form method="POST" action="store">
 @csrf
 
-    <label for="title">Last name:</label><br>
+    <label for="title">Title</label><br>
         <input type="text" id="title" name="title"><br><br>
 
     <label for="body">Body</label><br>

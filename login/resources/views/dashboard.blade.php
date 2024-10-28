@@ -14,10 +14,9 @@
                         <ul>
                             @foreach ($news as $new)
                                 <li>
-                                    <p> {{$new->user->email}}</p>
-                                    <p>{{ $new->title }}</p>
+                                    <p>{{$new->user->email}}</p>
+                                    <p><a href="{{ $new->link }}">{{ $new->title }}</a></p>
                                     <p>{{ $new->body}} </p>
-                                    <p> {{$new->link}} </p>
                                     <br>
                                 </li>
                             @endforeach

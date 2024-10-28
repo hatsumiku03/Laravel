@@ -8,7 +8,7 @@ use App\Models\News;
 
 
 Route::get('/', function () {
-    return view('welcome')->with('news', News::all());
+    return view('welcome')->with('news', News::paginate(10));
 });
 
 Route::get('/send', function () {

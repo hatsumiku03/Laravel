@@ -52,17 +52,27 @@
                     </header>
 
                     <main>
-                        <ul>
+                        <ul class="p-4 px-1">
                             @foreach ($news as $new)
-                                <li>
-                                    <p> {{$new->user->email}}</p>
-                                    <p>{{ $new->title }}</p>
-                                    <p>{{ $new->body}} </p>
-                                    <p> {{$new->link}} </p>
-                                    <br>
-                                </li>
+                            <li style="list-style-type: none">
+                                <form method=POST action="/vote/{{ $new->id }}" style="margin: 0; display: inline">
+                                    @csrf
+                                    <a href="" onclick="event.preventDefault(); this.closest('form').submit();" style="width: 16px">Vote</a>
+                                </form>
+
+                                <a href="{{ $new->link }}">{{ $new->title }}</a>
+
+                                <p style="padding-left: 16px">{{ count($new->votes) }} votes by {{ $new->user->name }} | 2 hours ago |
+                                    <a href="/new/{{$new->id}}">0 comments</a>
+                                </p>
+                            <hr>
+                            </li>
                             @endforeach
                         </ul>
                     </main>
+
+                    <footer>
+                        {{ $news -> links()}}
+                    </footer>
     </body>
 </html>
