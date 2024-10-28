@@ -13,7 +13,7 @@ Route::get('/', function () {
 
 Route::get('/send', function () {
     return view('send');
-});
+})->middleware('auth');
 
 Route::post('/store', function (StoreNewsRequest $StoreNewsRequest) {
     $news = new News;
