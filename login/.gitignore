@@ -1,3 +1,5 @@
+/vendor
+composer.*
 .env.backup
 .env.production
 .phpactor.json

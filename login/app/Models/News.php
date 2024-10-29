@@ -13,6 +13,7 @@ class News extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'title',
         'body',
         'link',

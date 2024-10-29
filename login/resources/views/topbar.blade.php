@@ -5,13 +5,13 @@
 
     a:link {
         color: #000000;
-        text-decoration: none;  
+        text-decoration: none;
     }
 
     a:visited {
         color: #828282;
     }
-    
+
     nav a:visited {
         color: #000000;
     }
@@ -22,9 +22,16 @@
     @if (Request::is('/'))
     <span style=" font-weight: bold">Rater News</span>
     <a href="/send" style="margin-right: auto;">Make a good scoop</a>
-    @else
+
+    @elseif (Request::is('send'))
     <span style="font-weight: bold">Makin' a good new huh?</span>
     <a href="/" style="margin-right: auto;">Back to news section</a>
+
+    <!-- ! Fix this !-->
+    @elseif (Request::is('new/'.$new->id))
+    <span style="font-weight: bold">Seein' somenthing cool huh?</span>
+    <a href="/" style="margin-right: auto;">Back to news section</a>
+    <a href="/send" style="margin-right: auto;">Make a good scoop</a>
     @endif
     @auth
         <a href="/dashboard">{{ Auth::user()->name }}</a> |

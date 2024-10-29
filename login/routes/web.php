@@ -5,14 +5,19 @@ use App\Http\Requests\StoreNewsRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\News;
-use App\Http\Controllers\VoteController;
 
 Route::get('/', function () {
     return view('welcome')->with('news', News::paginate(10));
 });
 
-// ! I must fix this shit 
-Route::post('/vote/{id}', [VoteController::class, 'store'])->name('votes.store');
+Route::get('new/{id}', function (string $id){
+    //$new_id = News::where('id', $id);
+    $new = News::find($id);
+    return view('new', compact('new'));
+});
+
+// ! I must fix this shit
+//Route::post('/vote/{id}', [VoteController::class, 'store'])->name('votes.store');
 
 Route::get('/send', function () {
     return view('send');
