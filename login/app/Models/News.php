@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
@@ -24,4 +25,6 @@ class News extends Model
     public function votes(): HasMany{
         return $this->hasMany(Vote::class);
     }
+
+    public function getTimeSinceCreatedAttribute() { return Carbon::parse($this->created_at)->diffForHumans(); }
 }

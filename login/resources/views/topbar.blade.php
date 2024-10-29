@@ -19,8 +19,13 @@
 
 <nav style="background: rgb(37, 122, 81); padding:0.2em; display: flex; gap: 1em; justify-content: flex-end; margin-bottom:2em;">
     <span></span>
-    <span style="font-weight: bold">Rater News</span>
+    @if (Request::is('/'))
+    <span style=" font-weight: bold">Rater News</span>
     <a href="/send" style="margin-right: auto;">Make a good scoop</a>
+    @else
+    <span style="font-weight: bold">Makin' a good new huh?</span>
+    <a href="/" style="margin-right: auto;">Back to news section</a>
+    @endif
     @auth
         <a href="/dashboard">{{ Auth::user()->name }}</a> |
         <form method=POST action="/logout" style="margin: 0">

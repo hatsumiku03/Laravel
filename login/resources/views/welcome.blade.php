@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>News section</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -56,16 +56,15 @@
                     <main>
                         <ul class="p-4 px-1">
                             @foreach ($news as $new)
-                            <li style="list-style-type: none">
+                            <li style="list-style-type: none" class="py-1">
+                                <a style="color: rgb(196, 196, 196)" href="{{ $new->link }}">{{ $new->title }}</a><br>
+
                                 <form method=POST action="/vote/{{ $new->id }}" style="margin: 0; display: inline">
                                     @csrf
                                     <a href="" onclick="event.preventDefault(); this.closest('form').submit();" style="width: 16px">Vote</a>
                                 </form>
-
-                                <a href="{{ $new->link }}">{{ $new->title }}</a>
-
-                                <p style="padding-left: 16px">{{ count($new->votes) }} votes by {{ $new->user->name }} | 2 hours ago |
-                                    <a href="/new/{{$new->id}}">0 comments</a>
+                                <p style="padding-left: 16px"> by {{ $new->user->name }} | {{ count($new->votes) }} votes | {{ $new->time_since_created }} |
+                                    <a style="color: rgb(145, 145, 145)" tyle="color: dark:white" href="/new/{{$new->id}}">0 comments</a>
                                 </p>
                             <hr>
                             </li>

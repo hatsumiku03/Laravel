@@ -21,6 +21,7 @@
                                 </li>
                             @endforeach
                         </ul>
+                        {{ $news -> links()}}
                     </main>
                 </div>
             </div>
