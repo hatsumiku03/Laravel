@@ -9,6 +9,7 @@ class VoteController extends Controller
 {
     public function store(Request $request)
     {
+/*
         // ! To fix
         $vote = new Vote;
         $vote->news_id = $request->input('news_id');
@@ -16,5 +17,6 @@ class VoteController extends Controller
         $vote->save();
 
         return redirect('/');
+*/
     }
 }

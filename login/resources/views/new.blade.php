@@ -23,6 +23,13 @@
 
         @include('topbar')
 
+            <h2 class="text-white text-xl">{{ $new->title }}</h2>
+            <p class="text-white">{{ $new->body }}</p><br><br>
 
+            <form>
+                @csrf
+                <input type="text"><br>
+                <input type="submit" value="Send it!" class="text-white">
+            </form>
     </body>
 </html>

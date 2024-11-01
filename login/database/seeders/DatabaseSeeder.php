@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         $user_u = User::factory()->create(["name" => "Ubby07", "email" => "u@u.u", "password" => "u"]);
 
         $user_ids = [$user_a->id, $user_e->id, $user_i->id, $user_o->id, $user_u->id ];
-        for($i = 1; $i<100; $i++) {
+        for($i = 1; $i<11; $i++) {
             News::factory()->create(["user_id"=> array_rand(array_flip($user_ids))]);
         }
     }

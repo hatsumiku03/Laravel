@@ -23,57 +23,42 @@
 
         @include('topbar')
 
-                        @if (Route::has('login'))
-                            <nav class="-mx-3 flex flex-1 justify-end">
-                                @auth
-                                    <a
-                                        href="{{ url('/dashboard') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Dashboard
-                                    </a>
-                                @else
-                                    <a
-                                        href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Log in
-                                    </a>
-
-                                    @if (Route::has('register'))
-                                        <a
-                                            href="{{ route('register') }}"
-                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                        >
-                                            Register
-                                        </a>
-                                    @endif
-                                @endauth
-                            </nav>
-                        @endif
-                    </header>
-
-                    <main>
-                        <ul class="p-4 px-1">
-                            @foreach ($news as $new)
-                            <li style="list-style-type: none" class="py-1">
-                                <a style="color: rgb(196, 196, 196)" href="{{ $new->link }}">{{ $new->title }}</a><br>
-
-                                <form method=POST action="/vote/{{ $new->id }}" style="margin: 0; display: inline">
-                                    @csrf
-                                    <a href="" onclick="event.preventDefault(); this.closest('form').submit();" style="width: 16px">Vote</a>
-                                </form>
-                                <p style="padding-left: 16px"> by {{ $new->user->name }} | {{ count($new->votes) }} votes | {{ $new->time_since_created }} |
-                                    <a style="color: rgb(145, 145, 145)" tyle="color: dark:white" href="/new/{{$new->id}}">0 comments</a>
-                                </p>
-                            <hr>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </main>
-
-                    <footer>
-                        {{ $news -> links()}}
-                    </footer>
-    </body>
-</html>
+                            <!-- | Esto es una partida que me encontre que me parecio bonita para mostrar en alerta que el usuario ya había votado XD |-->
+                            @if (session('status'))
+                            <div id="alert-border-2" class="flex items-center p-4 mb-4 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800 rounded-md" role="alert">
+                                <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                                </svg>
+                                
+                                <div class="ms-3 text-sm font-medium">{{ session('status') }}</div>
+                            </div>
+                            @endif
+                            
+                            <!-- | Esto ya son las noticias que se muestran en pantalla como tal -->
+                            <main>
+                                <ul class="p-4 px-1">
+                                    @foreach ($news as $new)
+                                    <li style="list-style-type: none" class="py-1">
+                                        <a style="color: rgb(196, 196, 196)" href="{{ $new->link }}">{{ $new->title }}</a><br>
+                                        
+                                        <form method=POST action="/vote/{{ $new->id }}" style="margin: 0; display: inline">
+                                            @csrf
+                                            <a href="" onclick="event.preventDefault(); this.closest('form').submit();" style="width: 16px">Vote</a>
+                                        </form>
+                                        <p style="padding-left: 16px"> by {{ $new->user->name }} | {{ count($new->votes) }} votes | {{ $new->time_since_created }} |
+                                            <a style="color: rgb(145, 145, 145)" tyle="color: dark:white" href="/new/{{$new->id}}">0 comments</a>
+                                        </p>
+                                        <hr>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </main>
+                            
+                            
+                            
+                            <footer>
+                                {{ $news -> links()}}
+                        </footer>
+                    </body>
+                    </html>
+                

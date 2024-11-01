@@ -37,24 +37,26 @@
                     <div class="grid justify-items-center">
                         <form method="POST" action="store">
                             @csrf
+                            <!-- | Title | -->
                             <div class="grid justify-items-center">
                                 <label for="title" class="text-white">Title</label><br>
-                                    <input type="text" id="title" name="title">
-                            </div>
-                        <br>   
+                                <input type="text" placeholder="Put the title for the news" id="title" name="title">
+                            </div><br>   
+
+                            <!-- | Body | -->
                             <div class="grid justify-items-center">
                                 <label for="body" class="text-white">Body</label><br>
                             </div>
                             
-                                    <textarea id="body" name="body" rows="4">
-                                    </textarea><br><br>
+                                <textarea id="body" placeholder="What do you want to type?" name="body"></textarea><br><br>
                             
-                                    <!-- | Change the value per the new individual id | -->
-                                    <input type="hidden" value="#" id="link" name="link">
+                            <!-- | Link | -->
+                                <input type="text" placeholder="Put the link for the news" id="link" name="link">
 
-                                    <div class="grid justify-items-center">
-                                        <input class="text-white bg-gray-800 py-2 px-4 rounded" type="submit" value="Submit">
-                                    </div>
+                            <!-- | Submit Button | -->    
+                                <div class="grid justify-items-center">
+                                    <input class="text-white bg-gray-800 py-2 px-4 rounded" type="submit" value="Submit">
+                                </div>
                         </form>
                     </div>
                         

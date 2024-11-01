@@ -2,27 +2,51 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Requests\StoreNewsRequest;
+use App\Http\Requests\VoteStoreRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\News;
+use App\Models\Vote;
+use Illuminate\Support\Facades\DB;
 
+use function Laravel\Prompts\alert;
+
+// | The base page to see the news |
 Route::get('/', function () {
     return view('welcome')->with('news', News::paginate(10));
 });
 
+// | Get the specific new |
 Route::get('new/{id}', function (string $id){
     //$new_id = News::where('id', $id);
     $new = News::find($id);
     return view('new', compact('new'));
 });
 
-// ! I must fix this shit
-//Route::post('/vote/{id}', [VoteController::class, 'store'])->name('votes.store');
+// | Rute send a vote to the database |
+Route::post('/vote/{news_id}', function(VoteStoreRequest $votoStoreRequest, $news_id) {
+    $vote = new Vote;
+    $found = Vote::where('user_id', $vote->user_id = Auth::user()->id)->where('news_id', $news_id)->count();
 
+    if(!$found){
+        $vote->news_id = $news_id;
+        $vote->user_id = Auth::user()->id;
+        $vote->save();
+    
+        return redirect()->back();
+    }else{
+        
+    return redirect()->back()->with('status', 'You already voted the new number '.$news_id);
+}
+
+})->middleware('auth');
+
+// | The route to get the form to send a new |
 Route::get('/send', function () {
     return view('send');
 })->middleware('auth');
 
+// | How to send to inf of form send to the database |
 Route::post('/store', function (StoreNewsRequest $StoreNewsRequest) {
     $news = new News;
     $news->fill($StoreNewsRequest->validated());
@@ -33,11 +57,13 @@ Route::post('/store', function (StoreNewsRequest $StoreNewsRequest) {
     return redirect('/');
 });
 
+// | Get the profile inf |
 Route::get('/dashboard', function () {
     $news = Auth::user()->news()->paginate(10);
     return view('dashboard')->with('news', $news);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// | Auth |
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
