@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Requests\CommentStoreRequest;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\VoteStoreRequest;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\News;
@@ -21,6 +23,18 @@ Route::get('new/{id}', function (string $id){
     //$new_id = News::where('id', $id);
     $new = News::find($id);
     return view('new', compact('new'));
+});
+
+//  | Send a comment to the database  |
+Route::post('/comment/{news_id}', function(CommentStoreRequest $commentStoreRequest, string $news_id){
+    $comment = new Comment;
+    $comment->text = $commentStoreRequest->text;
+    $comment->news_id = $news_id;
+    $comment->user_id = Auth::user()->id;
+    $comment->comment_id = $commentStoreRequest->comment_id;
+    $comment->save();
+
+    return redirect()->back();
 });
 
 // | Rute send a vote to the database |

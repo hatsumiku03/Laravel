@@ -46,7 +46,7 @@
                                             <a href="" onclick="event.preventDefault(); this.closest('form').submit();" style="width: 16px">Vote</a>
                                         </form>
                                         <p style="padding-left: 16px"> by {{ $new->user->name }} | {{ count($new->votes) }} votes | {{ $new->time_since_created }} |
-                                            <a style="color: rgb(145, 145, 145)" tyle="color: dark:white" href="/new/{{$new->id}}">0 comments</a>
+                                            <a style="color: rgb(145, 145, 145)" tyle="color: dark:white" href="/new/{{$new->id}}"> {{ count($new->comments) }} comments</a>
                                         </p>
                                         <hr>
                                     </li>

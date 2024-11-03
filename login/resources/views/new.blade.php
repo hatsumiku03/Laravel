@@ -26,10 +26,15 @@
             <h2 class="text-white text-xl">{{ $new->title }}</h2>
             <p class="text-white">{{ $new->body }}</p><br><br>
 
-            <form>
+            <form method="POST" action="/comment/{{ $new->id }}">
                 @csrf
-                <input type="text"><br>
-                <input type="submit" value="Send it!" class="text-white">
+                <div class="py-1">
+                    <input type="text" id="text" name="text" class="px-0 text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"><br>
+                </div>
+                <input type="submit" value="Send it!" class="py-0 px-1 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
             </form>
+
+
+            @include('allcomments', ['comments' => $new->comments])
     </body>
 </html>
