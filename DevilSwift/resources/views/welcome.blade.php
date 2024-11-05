@@ -1,11 +1,7 @@
-<div class="bg-red-500">
-    @auth
-        {{Auth::user()->name}} |
-        <a href="/logout">Log out</a>
-    @else
-        <a href="/login">Login</a>
-    @endauth
-</div>
+<title>Devil Swift</title>
+@include('components.logo')
+
+@include('components.navbar')
 
 @auth
 @csrf
@@ -17,10 +13,6 @@
     </form>
 </div>
 @endauth
-
-<!-- ! Niduft this and add this to the auth form !-->
-@can('upload', App\Models\File::class)
-@endcan
 
 
 <table class="table-auto border-separate border border-black">

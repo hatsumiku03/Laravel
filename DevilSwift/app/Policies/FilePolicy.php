@@ -15,10 +15,10 @@ class FilePolicy
         //
     }
 
-    // Change this
-    public function upload(User $user){
-        return $user->id === 1;
-    }
+    // This is a example of upload policy
+    // public function upload(User $user){
+    //    return $user->ban === 'ban';
+    // }
 
     public function delete(User $user, File $file){
         return $user->id === $file->user_id;
