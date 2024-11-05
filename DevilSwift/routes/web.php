@@ -4,6 +4,7 @@ use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SendController;
+use App\Http\Middleware\LoginControl;
 use App\Models\File;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ Route::get('/', function () {
 
 Route::get('/login', function(){
     return view ('login');
-});
+})->middleware(LoginControl::class);
 
 // | This if for authenticate the login | //
 Route::post('/login', [LoginController::class, 'authenticate']);
