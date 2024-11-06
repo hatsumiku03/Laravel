@@ -3,27 +3,43 @@
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SendController;
 use App\Http\Middleware\LoginControl;
 use App\Models\File;
 use Illuminate\Support\Facades\Route;
 
+// | HOME | //
 Route::get('/', function () {
     $files = File::all();
     return view('welcome')->with('files', $files);
 });
 
+// | LOGIN | //
+
+// Get the view of login //
 Route::get('/login', function(){
     return view ('login');
 })->middleware(LoginControl::class);
 
-// | This if for authenticate the login | //
+// This if for authenticate the login //
 Route::post('/login', [LoginController::class, 'authenticate']);
 
-// | This if for logout | //
+// | REGISTER | //
+// Get the view of the register //
+Route::get('/register', function(){
+    return view('register');
+});
+
+// Register send to the form //
+Route::post('/register', [RegisterController::class, 'register']);
+
+// | LOG OUT | //
+// This if for logout //
 Route::get('/logout', [LoginController::class, 'logout']);
 
-// | Get the files of the users | //
+// | UPLOAD | //
+// Get the files of the users //
 Route::post('/upload', [SendController::class, 'send']);
 // ->can('upload', File::class)
 // ! Add this properly!

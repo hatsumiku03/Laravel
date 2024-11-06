@@ -39,6 +39,10 @@
                 </tr>
             @endif
         @endforeach
+
+        @if (!empty($success))
+            <p class="text-white">{{$success}}</p>
+        @endif
 </table>
 
 <script src="https://cdn.tailwindcss.com"></script>
