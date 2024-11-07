@@ -1,15 +1,21 @@
-<div class="bg-red-900 text-gray-100">
-        <!-- Logo -->
-        <a href="/" class="flex items-center mb-6 text-2xl font-semibold text-white">
-            <img class="w-8 h-8 mr-2" src="https://raw.githubusercontent.com/hatsumiku03/icons/refs/heads/main/IconsNotMine/DevilGenSymbolJin.png" alt="logo">
-            Devil Swift
-        </a>
-        <div class="relative">
+    <nav class="bg-red-900 text-gray-100">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+            <!-- | Devil Swift Logo & Name |-->
+        <a href="/" class="flex items-center space-x-2 rtl:space-x-reverse ml-[-19em]">
+            <img src="https://raw.githubusercontent.com/hatsumiku03/icons/refs/heads/main/IconsNotMine/DevilGenSymbolJin.png" class="h-12 w-12" alt="Devil Swift Logo" />
+            <span class="self-center text-4xl font-semibold whitespace-nowrap dark:text-white">Devil Swift</span>
             @auth
-            {{Auth::user()->name}} |
-            <a class="absolute bottom-7 right-0" href="/logout">Log out</a>
-            @else
-            <a class="absolute bottom-7 right-2" href="/login">Login</a>
-            @endauth
+            <span class="self-center text-4xl font-semibold whitespace-nowrap dark:text-white">|</span>
+            <span class="text-xl font-semibold pointer-events-none cursor-none">{{Auth::user()->name}}</span>
+        </a>
+
+        <!-- | Account |-->
+            <div class="hidden w-full md:block md:w-auto fixed" id="navbar-default">
+                <a class="block py-2 px-3 text-white hover:text-gray-300 hover:underline md:p-0 text-white text-xl top-[1em] right-9 fixed" href="/logout">Log out</a>
+                @else
+                <a class="block py-2 px-3 text-white hover:text-gray-300 hover:underline md:p-0 text-white text-xl right-[6em] absolute" href="/login">Sing in</a>
+                <a class="block py-2 px-3 text-white md:p-0 text-white hover:text-gray-300 hover:underline text-xl right-8 absolute" href="/login">Sign up</a>
+                @endauth
+            </div>  
         </div>
-</div>
+    </nav>
