@@ -11,14 +11,46 @@
         @csrf
         <input type="file" name="uploaded_content">
         <input type="submit" class="bg-gray-200 px-1 rounded border-1 border-gray-400 text-gray-900" value="Send it!">
+        
+        {{-- <label>
+            <input type="radio" name="public_visibility" value="1" required checked> 
+            Público
+        </label>
+            
+        <label> 
+            <input type="radio" name="public_visibility" value="0" required> 
+            Privado 
+        </label> --}}
+
+
+
+    <span>
+        <input type="radio" id="public" name="public_visibility" value="1" class="hidden peer" required checked/>
+        <label for="public" class="inline-flex items-center justify-between px-1 ml-4 text-gray-400 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:text-gray-300 hover:bg-gray-700 peer-checked:text-green-500 peer-checked:border-green-600">
+            <div class="block">
+                <div class="text-lg font-semibold">Public</div>
+            </div>
+        </label>
+    </span>   
+    <span>
+        <input type="radio" id="private" name="public_visibility" value="0" class="hidden peer">
+        <label for="private" class="inline-flex items-center justify-between px-1 m-1 text-gray-400 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:text-gray-300 hover:bg-gray-700 peer-checked:text-red-500 peer-checked:border-red-600">
+            <div class="block">
+                <div class="text-lg font-semibold">Private</div>
+            </div>
+
+        </label>
+    </span>
+
+
     </form>
 </div>
 @endauth
 
 
 <div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+        <thead class="text-xs uppercase bg-gray-50 bg-gray-700 text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     File name

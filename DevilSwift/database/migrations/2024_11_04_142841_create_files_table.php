@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('path');
+            $table->boolean('public_visibility')->nullable()->default(true);
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });

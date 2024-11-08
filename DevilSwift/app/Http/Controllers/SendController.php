@@ -12,6 +12,7 @@ class SendController extends Controller
         $file = new File();
         $file->path = $r->file('uploaded_content')->store();
         $file->name = $r->file('uploaded_content')->getClientOriginalName();
+        $file->public_visibility = $r->input('public_visibility'); 
         $file->user_id = Auth::user()->id;
         $file->save();
 
