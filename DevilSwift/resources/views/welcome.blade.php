@@ -5,28 +5,16 @@
 @include('components.navbar')
     
 @auth
-@csrf
+
 <div class="py-4 px-2">
     <form method="POST" action="/upload" enctype="multipart/form-data">
         @csrf
-        <input type="file" name="uploaded_content">
+        <input  type="file" name="uploaded_content">
         <input type="submit" class="bg-gray-200 px-1 rounded border-1 border-gray-400 text-gray-900" value="Send it!">
-        
-        {{-- <label>
-            <input type="radio" name="public_visibility" value="1" required checked> 
-            Público
-        </label>
-            
-        <label> 
-            <input type="radio" name="public_visibility" value="0" required> 
-            Privado 
-        </label> --}}
-
-
 
     <span>
         <input type="radio" id="public" name="public_visibility" value="1" class="hidden peer" required checked/>
-        <label for="public" class="inline-flex items-center justify-between px-1 ml-4 text-gray-400 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:text-gray-300 hover:bg-gray-700 peer-checked:text-green-500 peer-checked:border-green-600">
+        <label for="public" class="transition inline-flex items-center justify-between px-1 ml-4 text-gray-400 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:text-gray-300 hover:bg-gray-700 peer-checked:text-green-500 peer-checked:border-green-600">
             <div class="block">
                 <div class="text-lg font-semibold">Public</div>
             </div>
@@ -34,13 +22,19 @@
     </span>   
     <span>
         <input type="radio" id="private" name="public_visibility" value="0" class="hidden peer">
-        <label for="private" class="inline-flex items-center justify-between px-1 m-1 text-gray-400 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:text-gray-300 hover:bg-gray-700 peer-checked:text-red-500 peer-checked:border-red-600">
+        <label for="private" class="transition inline-flex items-center justify-between px-1 m-1 text-gray-400 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:text-gray-300 hover:bg-gray-700 peer-checked:text-red-500 peer-checked:border-red-600">
             <div class="block">
                 <div class="text-lg font-semibold">Private</div>
             </div>
-
         </label>
-    </span>
+        @if (session('status'))
+            <span class="alert alert-success">
+                {{ session('status') }}
+            </span>
+        @else
+            
+        @endif
+    </span> 
 
 
     </form>
@@ -73,34 +67,9 @@
                 </tr>
             </thead>
         @foreach ($files as $file)
-        <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <a href="/download/{{ $file->id}}">{{ $file->name}}</a>
-                </th>
-                <td class="px-6 py-4">
-                    {{ $file->user->name }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ $file->size() }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ $file->updated_at }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ $file->created_at }}
-                </td>
-                @if (optional(Auth::user())->can('delete', $file))
-                <th scope="col" class="px-6 py-3">
-                    <a href="/delete/{{ $file->id}}">Delete</a>
-                </th>
-                @else
-                <th scope="col" class="px-6 py-3 text-red-500">
-                    Don't authorised
-                </th>
-                @endif
-            </tr>
-        </tbody>
+            @if ($file->public_visibility == 1 || $file->public_visibility == 0 && $file->user->id === Auth::id())
+                @include('welcome.filetable')
+            @endif
         @endforeach
     </table>
     @if (!empty($success))

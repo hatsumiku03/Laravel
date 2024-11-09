@@ -18,7 +18,7 @@ class FilePolicy
     // This is a example of upload policy
     // public function upload(User $user){
     //    return $user->ban === 'ban';
-    // }
+    // }v 
 
     public function delete(User $user, File $file){
         return $user->id === $file->user_id;
