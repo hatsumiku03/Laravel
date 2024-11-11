@@ -20,6 +20,11 @@ class FilePolicy
     //    return $user->ban === 'ban';
     // }v 
 
+    public function view(User $user, File $file): bool{
+        return $file->public_visibility == 1 || $file->user->id === $user->id;
+    }
+    // ! As an no loged user you can't see no one file, fix it !
+
     public function delete(User $user, File $file){
         return $user->id === $file->user_id;
     }

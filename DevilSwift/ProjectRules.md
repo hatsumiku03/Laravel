@@ -4,20 +4,20 @@ Desarrolla una aplicación web para el almacenamiento de ficheros.
 
 Potenciales requisitos:
 
-- [X] Subir y descargar ficheros
-- [X] Añadir la separación entre archivos privados y públicos
-- [] Borrado (y restauración) de ficheros
-- [] Autenticación de usuarios
-- [] Autorización en acceso a ficheros
-- [] Compartición de ficheros
-- [] Organización de ficheros (en carpetas, etiquetas, colecciones, ...)
-- [] Cuotas de almacenamiento
-- [] Gestión de grupos de usuarios, y autorización de acceso a ficheros ------------
-- [] Vista previa, edición y versionado de ficheros **de texto**
-- [] Edición de metadatos de ficheros
-- [] Búsqueda de ficheros
-- [] Auditoría y registro de actividades
-- [] Gestión avanzada de compartición (contraseña, tiempo limitado, ...)
+[X] Subir y descargar ficheros
+[X] Añadir la separación entre archivos privados y públicos
+[] Borrado (y restauración) de ficheros
+[] Autenticación de usuarios
+[] Autorización en acceso a ficheros
+[] Compartición de ficheros
+[] Organización de ficheros (en carpetas, etiquetas, colecciones, ...)
+[] Cuotas de almacenamiento
+[] Gestión de grupos de usuarios, y autorización de acceso a ficheros ------------
+[] Vista previa, edición y versionado de ficheros **de texto**
+[] Edición de metadatos de ficheros
+[] Búsqueda de ficheros
+[] Auditoría y registro de actividades
+[] Gestión avanzada de compartición (contraseña, tiempo limitado, ...)
 
 _Entre otros..._
 
