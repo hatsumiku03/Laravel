@@ -11,12 +11,15 @@ class FileUploader extends Component
 
     use WithFileUploads;
     public $file;
-
     public $public_visibility = '1';
 
     public $error = '';
 
+    public $public_value;
 
+    public function suckyoudomtrickers($value) {
+        $this->public_value = $value;
+    }
 
     public function save(){
 
@@ -27,13 +30,13 @@ class FileUploader extends Component
         }else{
             $file->path = $this->file->store();
             $file->name = $this->file->getClientOriginalName();
-            $file->public_visibility = $this->public_visibility; 
+            $file->public_visibility = $this->public_visibility;
             $file->user_id = Auth::user()->id;
             $file->save();
             return redirect('/');
-        } 
+        }
     }
-    
+
     public function render()
     {
         return view('livewire.file-uploader');
