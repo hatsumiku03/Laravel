@@ -40,9 +40,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 // | UPLOAD | //
 // Get the files of the users //
-Route::post('/upload', [SendController::class, 'send']);
-// ->can('upload', File::class)
-// ! Add this properly!
+// Route::post('/upload', [SendController::class, 'send']);
 
 
 // | Download files | //

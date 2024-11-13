@@ -7,7 +7,7 @@
 @auth
 
 <div class="py-4 px-2">
-    <form method="POST" action="/upload" enctype="multipart/form-data">
+    {{-- <form method="POST" action="/upload" enctype="multipart/form-data">
         @csrf
         <input  type="file" name="uploaded_content">
         <input type="submit" class="bg-gray-200 px-1 rounded border-1 border-gray-400 text-gray-900" value="Send it!">
@@ -37,7 +37,8 @@
     </span> 
 
 
-    </form>
+    </form> --}}
+    @livewire('file-uploader')
 </div>
 @endauth
 
@@ -103,7 +104,7 @@
         <p class="text-white">{{$success}}</p>
     @endif
 </div>
-
+@livewireScripts
 </body>
 
 <script src="https://cdn.tailwindcss.com"></script>
