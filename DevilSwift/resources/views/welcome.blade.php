@@ -3,7 +3,7 @@
 @include('components.logo')
 
 @include('components.navbar')
-    
+
 @auth
 
 <div class="py-4 px-2">
@@ -19,7 +19,7 @@
                 <div class="text-lg font-semibold">Public</div>
             </div>
         </label>
-    </span>   
+    </span>
     <span>
         <input type="radio" id="private" name="public_visibility" value="0" class="hidden peer">
         <label for="private" class="transition inline-flex items-center justify-between px-1 m-1 text-gray-400 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:text-gray-300 hover:bg-gray-700 peer-checked:text-red-500 peer-checked:border-red-600">
@@ -32,9 +32,9 @@
                 {{ session('status') }}
             </span>
         @else
-            
+
         @endif
-    </span> 
+    </span>
 
 
     </form> --}}
@@ -105,6 +105,6 @@
     @endif
 </div>
 @livewireScripts
+<script src="https://cdn.tailwindcss.com"></script>
 </body>
 
-<script src="https://cdn.tailwindcss.com"></script>
