@@ -15,15 +15,21 @@ class FilePolicy
         //
     }
 
-    // This is a example of upload policy
-    // public function upload(User $user){
-    //    return $user->ban === 'ban';
-    // }v 
+    public function view(?User $user, File $file): bool{
+        // | Acá se comprueba y se devuelve true si public visibility | //
+        if($file->public_visibility == 1){
+            return true;
+        }
+        
+        // | Acá dentro del if se pilla al usuario logeado y se devuelve un true o false si le pertenece a este | //
+        if($user){
+            return $file->user->id === $user->id;
+        }
 
-    public function view(User $user, File $file): bool{
-        return $file->public_visibility == 1 || $file->user->id === $user->id;
+        // | Si las anteriores condiciones no se cumplen, de default te ve | //
+        return false;
+        
     }
-    // ! As an no loged user you can't see no one file, fix it !
 
     public function delete(User $user, File $file){
         return $user->id === $file->user_id;
