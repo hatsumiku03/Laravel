@@ -18,7 +18,7 @@ class ShowFiles extends Component
     public function render()
     {
         return view('livewire.show-files', [
-            'files' => File::search('name', $this->search)->paginate(10),
+            'files' => File::search('name', $this->search)->paginate(3),
         ]);
     }
 }

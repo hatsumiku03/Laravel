@@ -1,4 +1,8 @@
 <div>
+
+    <div class="">
+        {{$files -> links('pagination::simple-tailwind')}}
+    </div>
     <div>
         <x-input type="text" wire:model.live="search" placeholder="Search a file..." />
         <!-- This doens't work, fix it -->
@@ -36,8 +40,4 @@
     </tbody>
     @endcan
     @endforeach
-
-    <div class="">
-        {{$files -> links('pagination::simple-tailwind')}}
-    </div>
 </div>

@@ -7,7 +7,7 @@ Potenciales requisitos:
 [X] Subir y descargar ficheros
 [X] Añadir la separación entre archivos privados y públicos
 [X] Autenticación de usuarios
-[X] Autorización en acceso a ficheros
+[] Autorización en acceso a ficheros
 [] Gestión avanzada de compartición (contraseña, tiempo limitado, ...)
 [] Organización de ficheros (en carpetas, etiquetas, colecciones, ...)
 [] Cuotas de almacenamiento
