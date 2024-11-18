@@ -14,7 +14,7 @@ Potenciales requisitos:
 [] Gestión de grupos de usuarios, y autorización de acceso a ficheros
 [] Vista previa, edición y versionado de ficheros **de texto**
 [] Edición de metadatos de ficheros
-[] Búsqueda de ficheros -----------------------
+[X] Búsqueda de ficheros
 [] Compartición de ficheros
 [] Auditoría y registro de actividades
 [] Borrado (y restauración) de ficheros
