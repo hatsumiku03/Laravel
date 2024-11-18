@@ -3,7 +3,6 @@
     
     <div class="py-4">
         <x-input type="text" wire:model.live="search" placeholder="Search a file..." />
-        <!-- This doens't work, fix it -->
     </div>
     <table class="w-full text-sm text-left rtl:text-right text-gray-400">
         <thead class="text-xs uppercase bg-gray-50 bg-gray-700 text-gray-400">
@@ -29,6 +28,7 @@
                 </tr>
             </thead>
         <tbody>
+            <!-- If you search a private file that isn't own to you, don't display the message -->
             @if($files->count() == 0)
             <tr class="border-b bg-gray-800 border-gray-700">
                 <th colspan="6" class="text-center py-4">
