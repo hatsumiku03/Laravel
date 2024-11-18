@@ -1,16 +1,44 @@
 <div>
 
-    <div class="">
-        {{$files -> links('pagination::simple-tailwind')}}
-    </div>
-    <div>
+    
+    <div class="py-4">
         <x-input type="text" wire:model.live="search" placeholder="Search a file..." />
         <!-- This doens't work, fix it -->
     </div>
-    
+    <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+        <thead class="text-xs uppercase bg-gray-50 bg-gray-700 text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    File name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Owner
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Size
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Created at
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Updated at
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Delete
+                </th>
+                </tr>
+            </thead>
+        <tbody>
+            @if($files->count() == 0)
+            <tr class="border-b bg-gray-800 border-gray-700">
+                <th colspan="6" class="text-center py-4">
+                    No se han encontrado resultados.
+                </th>
+            </tr>
+            @else
     @foreach ($files as $file)
     @can('view', $file)
-    <tbody>
+    
         <tr class="border-b bg-gray-800 border-gray-700">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-white">
                 <a href="/download/{{ $file->id}}">{{ $file->name}}</a>
@@ -37,7 +65,12 @@
             </th>
             @endif
         </tr>
-    </tbody>
     @endcan
     @endforeach
+    @endif
+</tbody>
+</table>
+<div class="">
+    {{$files -> links()}}
+</div>
 </div>
