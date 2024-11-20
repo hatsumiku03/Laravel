@@ -11,10 +11,10 @@
 
         <!-- | Account |-->
             <div class="hidden w-full md:block md:w-auto fixed" id="navbar-default">
-                <a class="block py-2 px-3 text-white hover:text-gray-300 hover:underline md:p-0 text-white text-xl top-[1em] right-9 fixed" href="/logout">Log out</a>
+                <a class="block py-2 px-3 text-white hover:text-gray-300 hover:underline md:p-0 text-white text-xl top-[1em] right-9 fixed" wire:navigate href="/logout">Log out</a>
                 @else
-                <a class="block py-2 px-3 text-white hover:text-gray-300 hover:underline md:p-0 text-white text-xl right-[6em] absolute" href="/login">Sing in</a>
-                <a class="block py-2 px-3 text-white md:p-0 text-white hover:text-gray-300 hover:underline text-xl right-8 absolute" href="/login">Sign up</a>
+                <a class="block py-2 px-3 text-white hover:text-gray-300 hover:underline md:p-0 text-white text-xl right-[6em] absolute" wire:navigate href="/login">Sing in</a>
+                <a class="block py-2 px-3 text-white md:p-0 text-white hover:text-gray-300 hover:underline text-xl right-8 absolute" wire:navigate href="/login">Sign up</a>
                 @endauth
             </div>  
         </div>

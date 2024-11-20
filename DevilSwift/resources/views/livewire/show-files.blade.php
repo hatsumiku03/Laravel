@@ -1,6 +1,4 @@
 <div>
-
-    
     <div class="py-4">
         <x-input type="text" wire:model.live="search" placeholder="Search a file..." />
     </div>
@@ -25,13 +23,17 @@
                 <th scope="col" class="px-6 py-3">
                     Delete
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    View
+                </th>
                 </tr>
             </thead>
         <tbody>
             <!-- If you search a private file that isn't own to you, don't display the message -->
+            <!-- All is in Livewire/ShowFiles if you need to modify -->
             @if($files->count() == 0)
             <tr class="border-b bg-gray-800 border-gray-700">
-                <th colspan="6" class="text-center py-4">
+                <th colspan="7" class="text-center py-4">
                     No se han encontrado resultados.
                 </th>
             </tr>
@@ -40,7 +42,7 @@
     @can('view', $file)
     
         <tr class="border-b bg-gray-800 border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-white">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-white hover:underline">
                 <a href="/download/{{ $file->id}}">{{ $file->name}}</a>
             </th>
             <td class="px-6 py-4">
@@ -64,6 +66,9 @@
                 Don't authorised
             </th>
             @endif
+            <td class="px-6 py-4">
+                <a href="" class="hover:text-gray-200 hover:underline">View</a>
+            </td>
         </tr>
     @endcan
     @endforeach
@@ -71,6 +76,6 @@
 </tbody>
 </table>
 <div class="">
-    {{$files -> links()}}
+    {{$files->links()}}
 </div>
 </div>

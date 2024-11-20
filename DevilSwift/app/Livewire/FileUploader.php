@@ -33,7 +33,7 @@ class FileUploader extends Component
             $file->public_visibility = $this->public_visibility;
             $file->user_id = Auth::user()->id;
             $file->save();
-            return redirect('/');
+            $this->redirect('/', navigate: true);
         }
     }
 
