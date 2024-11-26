@@ -8,13 +8,13 @@ Potenciales requisitos:
 [X] Añadir la separación entre archivos privados y públicos
 [X] Autenticación de usuarios
 [X] Búsqueda de ficheros [Parcial]
-[] Autorización en acceso a ficheros
+[] Vista previa, edición y versionado de ficheros **de texto**
 [] Compartición de ficheros
+[] Autorización en acceso a ficheros
 [] Gestión avanzada de compartición (contraseña, tiempo limitado, ...)
 [] Organización de ficheros (en carpetas, etiquetas, colecciones, ...)
 [] Cuotas de almacenamiento
 [] Gestión de grupos de usuarios, y autorización de acceso a ficheros
-[] Vista previa, edición y versionado de ficheros **de texto**
 [] Edición de metadatos de ficheros
 [] Auditoría y registro de actividades
 [] Borrado (y restauración) de ficheros

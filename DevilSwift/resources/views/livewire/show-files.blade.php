@@ -67,7 +67,8 @@
             </th>
             @endif
             <td class="px-6 py-4">
-                <a href="" class="hover:text-gray-200 hover:underline">View</a>
+                <!-- Aquí añadir la lógica de ver de ver preview-files correctamente-->
+                <a wire:click="" class="hover:text-gray-200 hover:underline">View</a>
             </td>
         </tr>
     @endcan
