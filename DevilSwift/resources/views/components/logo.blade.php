@@ -1,1 +1,1 @@
-    <link rel="icon" href="https://raw.githubusercontent.com/hatsumiku03/icons/refs/heads/main/IconsNotMine/DevilGenSymbolJin.png">
+    <link rel="icon" href="https://raw.githubusercontent.com/tetoterritory/icons/refs/heads/main/IconsNotMine/DevilGenSymbolJin.png">
