@@ -3,7 +3,7 @@
     <section class="bg-gray-950">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a href="/" class="flex items-center mb-6 text-2xl font-semibold text-white">
-                <img class="w-8 h-8 mr-2" src="https://raw.githubusercontent.com/hatsumiku03/icons/refs/heads/main/IconsNotMine/DevilGenSymbolJin.png" alt="logo">
+                <img class="w-8 h-8 mr-2" src="https://raw.githubusercontent.com/tetoterritory10/icons/refs/heads/main/IconsNotMine/DevilGenSymbolJin.png" alt="logo">
                 Devil Swift
             </a>
             <div class="w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 bg-[#660f0f] border-gray-700">
