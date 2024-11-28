@@ -2,7 +2,7 @@
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
             <!-- | Devil Swift Logo & Name |-->
         <a href="/" class="flex items-center space-x-2 rtl:space-x-reverse ml-[-19em]">
-            <img src="https://raw.githubusercontent.com/hatsumiku03/icons/refs/heads/main/IconsNotMine/DevilGenSymbolJin.png" class="h-12 w-12" alt="Devil Swift Logo" />
+            <img src="https://raw.githubusercontent.com/tetoterritory10/icons/refs/heads/main/IconsNotMine/DevilGenSymbolJin.png" class="h-12 w-12" alt="Devil Swift Logo" />
             <span class="self-center text-4xl font-semibold whitespace-nowrap dark:text-white">Devil Swift</span>
             @auth
             <span class="self-center text-4xl font-semibold whitespace-nowrap dark:text-white">|</span>
