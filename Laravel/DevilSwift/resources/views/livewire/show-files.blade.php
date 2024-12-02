@@ -24,7 +24,7 @@
                     Delete
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Viewa
+                    View
                 </th>
                 </tr>
             </thead>
