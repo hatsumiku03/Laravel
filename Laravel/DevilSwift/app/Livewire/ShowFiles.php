@@ -16,12 +16,7 @@ class ShowFiles extends Component
 
     public function render()
     {
-        // if($this->search == ""){
-        //     $files = File::where('name', 'like' , "%".$this->search."%")->paginate(10);
-        // }
-        // else{
         $files = File::where('name', 'like' , "%".$this->search."%")->paginate(10);
-        // }
         return view('livewire.show-files', [
             'files' => $files
         ]);

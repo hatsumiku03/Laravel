@@ -67,8 +67,10 @@
             </th>
             @endif
             <td class="px-6 py-4">
-                <!-- Aquí añadir la lógica de ver de ver preview-files correctamente-->
                 <a wire:click="" class="hover:text-gray-200 hover:underline">View</a>
+                {{-- Aquí se agarraría, y alrededor de todo este blade se pondría un if-else
+                y si este es true, se cambiaría la vista de la subida de archivos con la vista
+                del archivo, lo deje in progress xD--}}
             </td>
         </tr>
     @endcan

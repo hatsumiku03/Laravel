@@ -1,3 +1,4 @@
+<link type="icon" href="favicon.ico" />
 <title>Devil Swift</title>
 <body class="bg-gray-950 text-white">
 @include('components.logo')

@@ -1,3 +1,5 @@
-<div>
-    {{-- In work, do what you enjoy. --}}
+<div class="grid">
+    <div class="mt-2 text-center">
+        WiP
+    </div>
 </div>
