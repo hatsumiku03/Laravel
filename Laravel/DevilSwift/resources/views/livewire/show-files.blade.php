@@ -1,6 +1,6 @@
 <div>
     @if ($previewFile)
-        @livewire('preview-file', ['files' => $files])
+        @livewire('preview-file')
     @else
     <div class="py-4">
         <x-input type="text" wire:model.live="search" placeholder="Search a file..." />
