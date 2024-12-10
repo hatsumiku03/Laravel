@@ -1,4 +1,7 @@
 <div>
+    @if ($previewFile)
+        @livewire('preview-file', ['files' => $files])
+    @else
     <div class="py-4">
         <x-input type="text" wire:model.live="search" placeholder="Search a file..." />
     </div>
@@ -67,10 +70,7 @@
             </th>
             @endif
             <td class="px-6 py-4">
-                <a wire:click="" class="hover:text-gray-200 hover:underline">View</a>
-                {{-- Aquí se agarraría, y alrededor de todo este blade se pondría un if-else
-                y si este es true, se cambiaría la vista de la subida de archivos con la vista
-                del archivo, lo deje in progress xD--}}
+                <a wire:click="LetsSee({{ $file->id }})" class="hover:text-gray-200 hover:underline">View</a>
             </td>
         </tr>
     @endcan
@@ -81,4 +81,5 @@
 <div class="">
     {{$files->links()}}
 </div>
+@endif
 </div>

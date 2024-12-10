@@ -13,6 +13,13 @@ class ShowFiles extends Component
 
     public $search = '';
 
+    public $previewFile = false;
+
+    public function LetsSee($id)
+    {
+        $this->previewFile = true;
+    }
+
 
     public function render()
     {
